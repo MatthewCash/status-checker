@@ -31,6 +31,7 @@ async fn get_global_status() -> Result<Section> {
         desc: "Global Desciption".into(),
         service: Box::new(SectionService::Services(vec![
             SectionService::Service(check!(homepage::HomepageCheck).await?),
+            SectionService::Service(check!(epsilon::EpsilonCheck).await?),
         ])),
     })
 }
