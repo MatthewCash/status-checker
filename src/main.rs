@@ -32,6 +32,13 @@ async fn get_global_status() -> Result<Section> {
         service: Box::new(SectionService::Services(vec![
             SectionService::Service(check!(homepage::HomepageCheck).await?),
             SectionService::Service(check!(epsilon::EpsilonCheck).await?),
+            SectionService::Section(Section {
+                name: "Minecraft".into(),
+                desc: "Minecraft Infrastructure".into(),
+                service: Box::new(SectionService::Services(vec![
+                    SectionService::Service(check!(panel::PanelCheck).await?),
+                ])),
+            }),
         ])),
     })
 }
