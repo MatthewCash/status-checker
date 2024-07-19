@@ -1,3 +1,5 @@
+use std::time::{SystemTime, UNIX_EPOCH};
+
 use anyhow::Result;
 use serde::Serialize;
 use service::{Service, ServiceData};
@@ -7,16 +9,21 @@ mod services;
 
 #[derive(Debug, Serialize)]
 struct Section {
-    name: String,
-    desc: String,
-    service: Box<SectionService>,
+    time: u64,
+    items: Vec<SectionItem>,
 }
 
 #[derive(Debug, Serialize)]
-enum SectionService {
+struct SubSection {
+    name: String,
+    desc: String,
+    items: Vec<SectionItem>,
+}
+
+#[derive(Debug, Serialize)]
+enum SectionItem {
     Service(ServiceData),
-    Services(Vec<SectionService>),
-    Section(Section),
+    SubSection(SubSection),
 }
 
 macro_rules! check {
@@ -27,19 +34,16 @@ macro_rules! check {
 
 async fn get_global_status() -> Result<Section> {
     Ok(Section {
-        name: "Global".into(),
-        desc: "Global Desciption".into(),
-        service: Box::new(SectionService::Services(vec![
-            SectionService::Service(check!(homepage::HomepageCheck).await?),
-            SectionService::Service(check!(epsilon::EpsilonCheck).await?),
-            SectionService::Section(Section {
+        time: SystemTime::now().duration_since(UNIX_EPOCH)?.as_secs(),
+        items: vec![
+            SectionItem::Service(check!(homepage::HomepageCheck).await?),
+            SectionItem::Service(check!(epsilon::EpsilonCheck).await?),
+            SectionItem::SubSection(SubSection {
                 name: "Minecraft".into(),
                 desc: "Minecraft Infrastructure".into(),
-                service: Box::new(SectionService::Services(vec![
-                    SectionService::Service(check!(panel::PanelCheck).await?),
-                ])),
+                items: vec![SectionItem::Service(check!(panel::PanelCheck).await?)],
             }),
-        ])),
+        ],
     })
 }
 
