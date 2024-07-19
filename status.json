@@ -1,48 +1,43 @@
 {
-  "name": "Global",
-  "desc": "Global Desciption",
-  "service": {
-    "Services": [
-      {
-        "Service": {
-          "name": "Homepage",
-          "desc": "Main Website",
-          "status": {
-            "state": "Unhealthy",
-            "text": "Response is not valid HTML"
-          }
-        }
-      },
-      {
-        "Service": {
-          "name": "epsilon.zero",
-          "desc": "Epsilon Node",
-          "status": {
-            "state": "Healthy",
-            "text": "Service is reachable"
-          }
-        }
-      },
-      {
-        "Section": {
-          "name": "Minecraft",
-          "desc": "Minecraft Infrastructure",
-          "service": {
-            "Services": [
-              {
-                "Service": {
-                  "name": "Panel",
-                  "desc": "Web panel for game server management",
-                  "status": {
-                    "state": "Healthy",
-                    "text": "Service is online"
-                  }
-                }
-              }
-            ]
-          }
+  "time": 1721363402,
+  "items": [
+    {
+      "Service": {
+        "name": "Homepage",
+        "desc": "Main Website",
+        "status": {
+          "state": "Unhealthy",
+          "text": "Response is not valid HTML"
         }
       }
-    ]
-  }
+    },
+    {
+      "Service": {
+        "name": "epsilon.zero",
+        "desc": "Epsilon Node",
+        "status": {
+          "state": "Healthy",
+          "text": "Service is reachable"
+        }
+      }
+    },
+    {
+      "SubSection": {
+        "name": "Minecraft",
+        "desc": "Minecraft Infrastructure",
+        "items": [
+          {
+            "Service": {
+              "name": "Panel",
+              "desc": "Web panel for game server management",
+              "status": {
+                "state": "Healthy",
+                "text": "Service is online"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
 }
