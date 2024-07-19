@@ -1,6 +1,6 @@
 use anyhow::Result;
 use async_trait::async_trait;
-use serde_derive::Serialize;
+use serde::Serialize;
 
 #[derive(Debug, Serialize)]
 pub struct ServiceInfo {
