@@ -15,7 +15,7 @@ pub struct ServiceData {
     pub status: Status,
 }
 
-#[derive(Debug, Serialize)]
+#[derive(Debug, Serialize, PartialEq)]
 pub enum State {
     Healthy,
     Unhealthy,

@@ -2,7 +2,7 @@ use anyhow::{bail, Result};
 use futures::future::try_join_all;
 use itertools::Itertools;
 use serde::Serialize;
-use service::{Service, ServiceData};
+use service::{Service, ServiceData, State};
 use std::time::{SystemTime, UNIX_EPOCH};
 
 mod service;
@@ -11,6 +11,7 @@ mod services;
 #[derive(Debug, Serialize)]
 struct Section {
     time: u64,
+    overall_state: State,
     items: Vec<SectionItem>,
 }
 
@@ -41,6 +42,14 @@ async fn get_global_status() -> Result<Section> {
     ])
     .await?;
 
+    let overall_state = if checks.iter().all(|x| x.status.state == State::Healthy) {
+        State::Healthy
+    } else if checks.iter().all(|x| x.status.state == State::Offline) {
+        State::Offline
+    } else {
+        State::Unhealthy
+    };
+
     let Some((homepage, epsilon, panel)) =
         checks.drain(..).tuples().next()
     else {
@@ -49,6 +58,7 @@ async fn get_global_status() -> Result<Section> {
 
     Ok(Section {
         time: SystemTime::now().duration_since(UNIX_EPOCH)?.as_secs(),
+        overall_state,
         items: vec![
             SectionItem::Service(homepage),
             SectionItem::Service(epsilon),
