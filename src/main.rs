@@ -1,8 +1,9 @@
-use std::time::{SystemTime, UNIX_EPOCH};
-
-use anyhow::Result;
+use anyhow::{bail, Result};
+use futures::future::try_join_all;
+use itertools::Itertools;
 use serde::Serialize;
 use service::{Service, ServiceData};
+use std::time::{SystemTime, UNIX_EPOCH};
 
 mod service;
 mod services;
@@ -33,15 +34,30 @@ macro_rules! check {
 }
 
 async fn get_global_status() -> Result<Section> {
+    let mut checks = try_join_all([
+        check!(homepage::HomepageCheck),
+        check!(epsilon::EpsilonCheck),
+        check!(panel::PanelCheck),
+    ])
+    .await?;
+
+    let Some((homepage, epsilon, panel)) =
+        checks.drain(..).tuples().next()
+    else {
+        bail!("Some checks are missing!")
+    };
+
     Ok(Section {
         time: SystemTime::now().duration_since(UNIX_EPOCH)?.as_secs(),
         items: vec![
-            SectionItem::Service(check!(homepage::HomepageCheck).await?),
-            SectionItem::Service(check!(epsilon::EpsilonCheck).await?),
+            SectionItem::Service(homepage),
+            SectionItem::Service(epsilon),
             SectionItem::SubSection(SubSection {
                 name: "Minecraft".into(),
                 desc: "Minecraft Infrastructure".into(),
-                items: vec![SectionItem::Service(check!(panel::PanelCheck).await?)],
+                items: vec![
+                    SectionItem::Service(panel),
+                ],
             }),
         ],
     })
