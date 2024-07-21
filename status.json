@@ -1,5 +1,5 @@
 {
-  "time": 1721546429,
+  "time": 1721546548,
   "overall_state": "Unhealthy",
   "items": [
     {
@@ -34,6 +34,26 @@
               "status": {
                 "state": "Healthy",
                 "text": "Service is online"
+              }
+            }
+          },
+          {
+            "Service": {
+              "name": "Minecraft Java",
+              "desc": "Java Proxy for Minecraft Servers",
+              "status": {
+                "state": "Healthy",
+                "text": "Server is online with version Java 1.7-1.19 or Latest Bedrock"
+              }
+            }
+          },
+          {
+            "Service": {
+              "name": "Minecraft Bedrock",
+              "desc": "Bedrock Proxy for Minecraft Servers",
+              "status": {
+                "state": "Healthy",
+                "text": "Server is online with version 1.21.2"
               }
             }
           }
