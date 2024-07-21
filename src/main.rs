@@ -39,6 +39,8 @@ async fn get_global_status() -> Result<Section> {
         check!(homepage::HomepageCheck),
         check!(epsilon::EpsilonCheck),
         check!(panel::PanelCheck),
+        check!(minecraft_java::MinecraftJavaCheck),
+        check!(minecraft_bedrock::MinecraftBedrockCheck),
     ])
     .await?;
 
@@ -50,7 +52,7 @@ async fn get_global_status() -> Result<Section> {
         State::Unhealthy
     };
 
-    let Some((homepage, epsilon, panel)) =
+    let Some((homepage, epsilon, panel, minecraft_java, minecraft_bedrock)) =
         checks.drain(..).tuples().next()
     else {
         bail!("Some checks are missing!")
@@ -67,6 +69,8 @@ async fn get_global_status() -> Result<Section> {
                 desc: "Minecraft Infrastructure".into(),
                 items: vec![
                     SectionItem::Service(panel),
+                    SectionItem::Service(minecraft_java),
+                    SectionItem::Service(minecraft_bedrock),
                 ],
             }),
         ],
