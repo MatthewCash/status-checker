@@ -24,7 +24,7 @@ impl Service for HomepageCheck {
                 state: State::Offline,
                 text: format!("Response is HTTP code {code}"),
             }
-        } else if !body.starts_with("<!DOCTYPE html>") {
+        } else if !body.to_lowercase().starts_with("<!doctype html>") {
             Status {
                 state: State::Unhealthy,
                 text: "Response is not valid HTML".into(),
