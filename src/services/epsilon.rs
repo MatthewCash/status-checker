@@ -9,8 +9,8 @@ pub struct EpsilonCheck {}
 impl Service for EpsilonCheck {
     fn service_info(&self) -> ServiceInfo {
         ServiceInfo {
-            name: "epsilon.zero".into(),
-            desc: "Epsilon Node".into(),
+            name: "Epsilon Node".into(),
+            desc: "Main Compute Server".into(),
         }
     }
     async fn get_status(&self) -> Result<Status> {
@@ -21,7 +21,7 @@ impl Service for EpsilonCheck {
         Ok(if code == 200 {
             Status {
                 state: State::Healthy,
-                text: "Service is reachable".into(),
+                text: "Machine is reachable".into(),
             }
         } else {
             Status {
