@@ -1,5 +1,5 @@
 {
-  "time": 1721785048,
+  "time": 1721787056,
   "overall_state": "Unhealthy",
   "items": [
     {
@@ -14,11 +14,11 @@
     },
     {
       "Service": {
-        "name": "epsilon.zero",
-        "desc": "Epsilon Node",
+        "name": "Epsilon Node",
+        "desc": "Main Compute Server",
         "status": {
           "state": "Healthy",
-          "text": "Service is reachable"
+          "text": "Machine is reachable"
         }
       }
     },
