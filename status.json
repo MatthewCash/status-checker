@@ -1,5 +1,5 @@
 {
-  "time": 1727736976,
+  "time": 1727738276,
   "overall_state": "Unhealthy",
   "items": [
     {
@@ -53,7 +53,7 @@
               "desc": "Bedrock Proxy for Minecraft Servers",
               "status": {
                 "state": "Healthy",
-                "text": "Server is online with version 1.21.30"
+                "text": "Server is online with version 1.21.31"
               }
             }
           }
