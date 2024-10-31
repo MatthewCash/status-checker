@@ -1,5 +1,5 @@
 {
-  "time": 1730364599,
+  "time": 1730365213,
   "overall_state": "Unhealthy",
   "items": [
     {
@@ -52,8 +52,8 @@
               "name": "Minecraft Bedrock",
               "desc": "Bedrock Proxy for Minecraft Servers",
               "status": {
-                "state": "Healthy",
-                "text": "Server is online with version 1.21.43"
+                "state": "Offline",
+                "text": "Ping failed: The server did not respond to the ping request."
               }
             }
           }
