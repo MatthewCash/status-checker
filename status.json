@@ -1,5 +1,5 @@
 {
-  "time": 1750446632,
+  "time": 1750447604,
   "overall_state": "Unhealthy",
   "items": [
     {
@@ -32,8 +32,8 @@
               "name": "Panel",
               "desc": "Web panel for game server management",
               "status": {
-                "state": "Healthy",
-                "text": "Service is online"
+                "state": "Offline",
+                "text": "Response is HTTP code 500"
               }
             }
           },
