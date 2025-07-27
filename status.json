@@ -1,14 +1,14 @@
 {
-  "time": 1753599452,
-  "overall_state": "Unhealthy",
+  "time": 1753601039,
+  "overall_state": "Healthy",
   "items": [
     {
       "Service": {
         "name": "Homepage",
         "desc": "Main Website",
         "status": {
-          "state": "Unhealthy",
-          "text": "Response is not valid HTML"
+          "state": "Healthy",
+          "text": "Service is online"
         }
       }
     },
