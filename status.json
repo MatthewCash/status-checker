@@ -1,5 +1,5 @@
 {
-  "time": 1765497451,
+  "time": 1765504735,
   "overall_state": "Healthy",
   "items": [
     {
@@ -43,7 +43,7 @@
               "desc": "Java Proxy for Minecraft Servers",
               "status": {
                 "state": "Healthy",
-                "text": "Server is online with version Java 1.8-1.21.10"
+                "text": "Server is online with version Java 1.8-1.21.11"
               }
             }
           },
