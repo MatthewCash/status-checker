@@ -1,6 +1,6 @@
 {
-  "time": 1767822938,
-  "overall_state": "Healthy",
+  "time": 1767824461,
+  "overall_state": "Unhealthy",
   "items": [
     {
       "Service": {
@@ -42,8 +42,8 @@
               "name": "Minecraft Java",
               "desc": "Java Proxy for Minecraft Servers",
               "status": {
-                "state": "Healthy",
-                "text": "Server is online with version Java 1.8-1.21.11"
+                "state": "Offline",
+                "text": "Ping failed: The connection did not finish in time."
               }
             }
           },
