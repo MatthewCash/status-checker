@@ -37,7 +37,7 @@ macro_rules! check {
 async fn get_global_status() -> Result<Section> {
     let mut checks = try_join_all([
         check!(homepage::HomepageCheck),
-        check!(epsilon::EpsilonCheck),
+        check!(coral::CoralCheck),
         check!(panel::PanelCheck),
         check!(minecraft_java::MinecraftJavaCheck),
         check!(minecraft_bedrock::MinecraftBedrockCheck),
@@ -52,7 +52,7 @@ async fn get_global_status() -> Result<Section> {
         State::Unhealthy
     };
 
-    let Some((homepage, epsilon, panel, minecraft_java, minecraft_bedrock)) =
+    let Some((homepage, coral, panel, minecraft_java, minecraft_bedrock)) =
         checks.drain(..).tuples().next()
     else {
         bail!("Some checks are missing!")
@@ -63,7 +63,7 @@ async fn get_global_status() -> Result<Section> {
         overall_state,
         items: vec![
             SectionItem::Service(homepage),
-            SectionItem::Service(epsilon),
+            SectionItem::Service(coral),
             SectionItem::SubSection(SubSection {
                 name: "Minecraft".into(),
                 desc: "Minecraft Infrastructure".into(),

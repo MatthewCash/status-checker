@@ -1,4 +1,4 @@
-pub mod epsilon;
+pub mod coral;
 pub mod homepage;
 pub mod minecraft_bedrock;
 pub mod minecraft_java;
