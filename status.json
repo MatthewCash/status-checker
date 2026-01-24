@@ -1,5 +1,5 @@
 {
-  "time": 1769212655,
+  "time": 1769216713,
   "overall_state": "Healthy",
   "items": [
     {
@@ -14,7 +14,7 @@
     },
     {
       "Service": {
-        "name": "Epsilon Node",
+        "name": "Coral Node",
         "desc": "Main Compute Server",
         "status": {
           "state": "Healthy",
