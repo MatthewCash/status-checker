@@ -1,6 +1,6 @@
 {
-  "time": 1772668538,
-  "overall_state": "Unhealthy",
+  "time": 1772675468,
+  "overall_state": "Healthy",
   "items": [
     {
       "Service": {
@@ -17,8 +17,8 @@
         "name": "Coral Node",
         "desc": "Main Compute Server",
         "status": {
-          "state": "Offline",
-          "text": "Connection Failed\n"
+          "state": "Healthy",
+          "text": "Machine is reachable"
         }
       }
     },
@@ -32,8 +32,8 @@
               "name": "Panel",
               "desc": "Web panel for game server management",
               "status": {
-                "state": "Offline",
-                "text": "Response is HTTP code 504"
+                "state": "Healthy",
+                "text": "Service is online"
               }
             }
           },
@@ -42,8 +42,8 @@
               "name": "Minecraft Java",
               "desc": "Java Proxy for Minecraft Servers",
               "status": {
-                "state": "Offline",
-                "text": "Ping failed: The connection did not finish in time."
+                "state": "Healthy",
+                "text": "Server is online with version Java 1.8-1.21.11"
               }
             }
           },
@@ -52,8 +52,8 @@
               "name": "Minecraft Bedrock",
               "desc": "Bedrock Proxy for Minecraft Servers",
               "status": {
-                "state": "Offline",
-                "text": "Ping failed: The server did not respond to the ping request."
+                "state": "Healthy",
+                "text": "Server is online with version 1.21.130"
               }
             }
           }
