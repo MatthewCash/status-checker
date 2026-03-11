@@ -1,6 +1,6 @@
 {
-  "time": 1773271122,
-  "overall_state": "Unhealthy",
+  "time": 1773272722,
+  "overall_state": "Healthy",
   "items": [
     {
       "Service": {
@@ -17,8 +17,8 @@
         "name": "Coral Node",
         "desc": "Main Compute Server",
         "status": {
-          "state": "Offline",
-          "text": "Connection Failed\n"
+          "state": "Healthy",
+          "text": "Machine is reachable"
         }
       }
     },
@@ -52,8 +52,8 @@
               "name": "Minecraft Bedrock",
               "desc": "Bedrock Proxy for Minecraft Servers",
               "status": {
-                "state": "Offline",
-                "text": "Ping failed: The server did not respond to the ping request."
+                "state": "Healthy",
+                "text": "Server is online with version 1.21.130"
               }
             }
           }
