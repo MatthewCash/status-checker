@@ -1,6 +1,6 @@
 {
-  "time": 1779169718,
-  "overall_state": "Healthy",
+  "time": 1779180701,
+  "overall_state": "Unhealthy",
   "items": [
     {
       "Service": {
@@ -17,8 +17,8 @@
         "name": "Coral Node",
         "desc": "Main Compute Server",
         "status": {
-          "state": "Healthy",
-          "text": "Machine is reachable"
+          "state": "Offline",
+          "text": "Connection Failed\n"
         }
       }
     },
@@ -42,8 +42,8 @@
               "name": "Minecraft Java",
               "desc": "Java Proxy for Minecraft Servers",
               "status": {
-                "state": "Healthy",
-                "text": "Server is online with version Java 1.8-1.21.11"
+                "state": "Offline",
+                "text": "Ping failed: The connection did not finish in time."
               }
             }
           },
