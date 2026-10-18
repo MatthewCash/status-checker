@@ -1,6 +1,6 @@
 {
-  "time": 1792350548,
-  "overall_state": "Unhealthy",
+  "time": 1792359022,
+  "overall_state": "Healthy",
   "items": [
     {
       "Service": {
@@ -43,7 +43,7 @@
               "desc": "Java Proxy for Minecraft Servers",
               "status": {
                 "state": "Healthy",
-                "text": "Server is online with version Java 1.8-26.2"
+                "text": "Server is online with version Java 1.8-26.3"
               }
             }
           },
@@ -52,8 +52,8 @@
               "name": "Minecraft Bedrock",
               "desc": "Bedrock Proxy for Minecraft Servers",
               "status": {
-                "state": "Offline",
-                "text": "Ping failed: The server did not respond to the ping request."
+                "state": "Healthy",
+                "text": "Server is online with version 26.52"
               }
             }
           }
